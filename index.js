@@ -23,6 +23,17 @@ app.use(rollbar.errorHandler())
 
 const port = process.env.PORT || 4444
 
-
+app.get("/api/food", (req, res) => {
+    console.log("is this working")
+    const food = ["Micky D's", "Burger King", "Sushi", "Penut butter and jelly", "Ham n Cheese",
+    ];
+  
+    // choose random compliment
+    let randomIndex = Math.floor(Math.random() * food.length);
+    let randomFood = compliments[randomIndex];
+    console.log(randomIndex)
+  
+    res.status(200).send(randomFood);
+  });
 
 app.listen(port, () => console.log(`Take us to ward ${port}!`))
