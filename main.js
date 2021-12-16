@@ -21,3 +21,7 @@ const displayList = foodList => {
         newList.appendChild(listItem)
     }
 }
+const synchModel = (foodList) => {
+    model = foodList
+    displayList(model)
+}
