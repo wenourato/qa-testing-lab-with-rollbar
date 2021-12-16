@@ -23,6 +23,12 @@ app.use(rollbar.errorHandler())
 
 const port = process.env.PORT || 4444
 
+
+app.get('/js', (req, res) => {
+    res.sendFile(path.join(__dirname, '/main.js'))
+
+})
+
 app.get("/api/food", (req, res) => {
     console.log("is this working")
     const food = ["Micky D's", "Burger King", "Sushi", "Penut butter and jelly", "Ham n Cheese",
@@ -30,7 +36,7 @@ app.get("/api/food", (req, res) => {
   
     // choose random compliment
     let randomIndex = Math.floor(Math.random() * food.length);
-    let randomFood = compliments[randomIndex];
+    let randomFood = food[randomIndex];
     console.log(randomIndex)
   
     res.status(200).send(randomFood);

@@ -1,6 +1,6 @@
 document.getElementById("What should I eat?").onclick = function () {
     // console.log('jajjsajsa')
-    axios.get("http://localhost:4444/api/food/")
+    axios.get("/api/food/")
     .then(function (response) {
         const data = response.data;
         alert(data);
@@ -16,7 +16,7 @@ const displayList = foodList => {
     listDiv.appendChild(newList);
     
     for(let i = 0; i < foodList.length; i++) {
-        listItem = document.createElement('li')
+        const listItem = document.createElement('li')
         listItem.appendChild(document.createTextNode(foodList[i]))
         newList.appendChild(listItem)
     }
